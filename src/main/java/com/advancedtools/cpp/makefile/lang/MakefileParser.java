@@ -3,6 +3,7 @@ package com.advancedtools.cpp.makefile.lang;
 import org.jetbrains.annotations.NotNull;
 import com.advancedtools.cpp.makefile.MakefileTokenTypes;
 import com.intellij.lang.ASTNode;
+import com.intellij.lang.LanguageVersion;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiParser;
 import com.intellij.psi.tree.IElementType;
@@ -14,7 +15,7 @@ import com.intellij.psi.tree.IElementType;
 public class MakefileParser implements PsiParser
 {
 	@NotNull
-	public ASTNode parse(IElementType iElementType, PsiBuilder psiBuilder)
+	public ASTNode parse(IElementType iElementType, PsiBuilder psiBuilder, LanguageVersion languageVersion)
 	{
 		final PsiBuilder.Marker marker = psiBuilder.mark();
 		PsiBuilder.Marker statement = psiBuilder.mark();

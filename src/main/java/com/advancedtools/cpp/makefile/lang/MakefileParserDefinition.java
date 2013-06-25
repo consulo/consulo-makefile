@@ -42,20 +42,20 @@ public class MakefileParserDefinition implements ParserDefinition
 	}
 
 	@NotNull
-	public TokenSet getWhitespaceTokens()
+	public TokenSet getWhitespaceTokens(LanguageVersion languageVersion)
 	{
 		return MakefileTokenTypes.WHITE_SPACES;
 	}
 
 	@NotNull
-	public TokenSet getCommentTokens()
+	public TokenSet getCommentTokens(LanguageVersion languageVersion)
 	{
 		return MakefileTokenTypes.COMMENTS;
 	}
 
 	// IDEA8
 	@NotNull
-	public TokenSet getStringLiteralElements()
+	public TokenSet getStringLiteralElements(LanguageVersion languageVersion)
 	{
 		return MakefileTokenTypes.LITERALS;
 	}

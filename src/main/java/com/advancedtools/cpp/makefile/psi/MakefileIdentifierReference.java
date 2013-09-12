@@ -1,28 +1,20 @@
 package com.advancedtools.cpp.makefile.psi;
 
-import gnu.trove.THashMap;
-
-import java.util.Map;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.advancedtools.cpp.makefile.MakefileTokenTypes;
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.util.Key;
 import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiElementResolveResult;
-import com.intellij.psi.PsiElementVisitor;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiManager;
-import com.intellij.psi.PsiPolyVariantReference;
-import com.intellij.psi.PsiReferenceExpression;
-import com.intellij.psi.ResolveResult;
+import com.intellij.psi.*;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.util.CachedValue;
 import com.intellij.psi.util.CachedValueProvider;
 import com.intellij.psi.util.CachedValuesManager;
 import com.intellij.util.IncorrectOperationException;
+import gnu.trove.THashMap;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Map;
 
 /**
  * User: maxim
@@ -191,10 +183,6 @@ public class MakefileIdentifierReference implements PsiPolyVariantReference
 							{
 								element.acceptChildren(this);
 							}
-						}
-
-						public void visitReferenceExpression(PsiReferenceExpression expression)
-						{
 						}
 					});
 					return new Result<Map<String, Object>>(result, psiFile);

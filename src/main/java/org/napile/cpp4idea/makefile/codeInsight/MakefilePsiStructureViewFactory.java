@@ -20,6 +20,7 @@ import com.intellij.ide.util.treeView.smartTree.Grouper;
 import com.intellij.ide.util.treeView.smartTree.Sorter;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.PsiStructureViewFactory;
+import com.intellij.openapi.editor.Editor;
 import com.intellij.pom.Navigatable;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
@@ -36,21 +37,25 @@ public class MakefilePsiStructureViewFactory implements PsiStructureViewFactory
 	{
 		return new TreeBasedStructureViewBuilder()
 		{
+			@Override
 			@NotNull
-			public StructureViewModel createStructureViewModel()
+			public StructureViewModel createStructureViewModel(@Nullable Editor editor)
 			{
 				return new TextEditorBasedStructureViewModel(psiFile)
 				{
+					@Override
 					protected PsiFile getPsiFile()   // TODO: change abstract method to constructor parameter?
 					{
 						return psiFile;
 					}
 
+					@Override
 					@NotNull
 					public StructureViewTreeElement getRoot()
 					{
 						return new PsiTreeElementBase<PsiElement>(psiFile)
 						{
+							@Override
 							@NotNull
 							public Collection<StructureViewTreeElement> getChildrenBase()
 							{
@@ -67,6 +72,7 @@ public class MakefilePsiStructureViewFactory implements PsiStructureViewFactory
 											{
 												children.add(new PsiTreeElementBase(el2.getPsi())
 												{
+													@Override
 													public void navigate(boolean b)
 													{
 														final Navigatable descriptor = EditSourceUtil.getDescriptor(el2.getPsi());
@@ -74,21 +80,25 @@ public class MakefilePsiStructureViewFactory implements PsiStructureViewFactory
 															descriptor.navigate(b);
 													}
 
+													@Override
 													public boolean canNavigate()
 													{
 														return true;
 													}
 
+													@Override
 													public boolean canNavigateToSource()
 													{
 														return canNavigate();
 													}
 
+													@Override
 													public Collection getChildrenBase()
 													{
 														return Collections.emptyList();
 													}
 
+													@Override
 													public String getPresentableText()
 													{
 														return el2.getText();
@@ -101,6 +111,7 @@ public class MakefilePsiStructureViewFactory implements PsiStructureViewFactory
 								return children;
 							}
 
+							@Override
 							public String getPresentableText()
 							{
 								return "root";
@@ -108,24 +119,28 @@ public class MakefilePsiStructureViewFactory implements PsiStructureViewFactory
 						};
 					}
 
+					@Override
 					@NotNull
 					public Grouper[] getGroupers()
 					{
 						return new Grouper[0];
 					}
 
+					@Override
 					@NotNull
 					public Sorter[] getSorters()
 					{
 						return new Sorter[]{Sorter.ALPHA_SORTER};
 					}
 
+					@Override
 					@NotNull
 					public Filter[] getFilters()
 					{
 						return new Filter[0];
 					}
 
+					@Override
 					@NotNull
 					protected Class[] getSuitableClasses()
 					{

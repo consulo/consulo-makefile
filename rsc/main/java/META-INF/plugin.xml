@@ -2,7 +2,7 @@
 	<id>org.napile.idea.cpp4idea.makefile</id>
 	<name>Makefile</name>
 	<version>SNAPSHOT</version>
-	<category>Custom Language</category>
+	<category>Custom Languages</category>
 	<extensions defaultExtensionNs="com.intellij">
 		<completion.contributor language="Makefile"
 								implementationClass="org.napile.cpp4idea.makefile.codeInsight.completion.MakefileCompletionContributor"/>

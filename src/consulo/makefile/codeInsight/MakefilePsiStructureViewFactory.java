@@ -1,4 +1,4 @@
-package org.napile.cpp4idea.makefile.codeInsight;
+package consulo.makefile.codeInsight;
 
 import java.util.ArrayList;
 import java.util.Collection;

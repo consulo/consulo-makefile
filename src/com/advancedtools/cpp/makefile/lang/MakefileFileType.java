@@ -5,7 +5,7 @@ import javax.swing.Icon;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.napile.cpp4idea.makefile.icons.MakefileIcons;
+import consulo.makefile.icons.MakefileIcons;
 import com.advancedtools.cpp.makefile.MakefileLanguage;
 import com.intellij.openapi.fileTypes.LanguageFileType;
 

@@ -3,7 +3,7 @@ package com.advancedtools.cpp.makefile.lang;
 import org.jetbrains.annotations.NotNull;
 import com.advancedtools.cpp.makefile.MakefileTokenTypes;
 import com.intellij.lang.ASTNode;
-import com.intellij.lang.LanguageVersion;
+import consulo.lang.LanguageVersion;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiParser;
 import com.intellij.psi.tree.IElementType;

@@ -1,4 +1,4 @@
-package org.napile.cpp4idea.makefile.codeInsight;
+package consulo.makefile.codeInsight;
 
 import org.jetbrains.annotations.NotNull;
 import com.advancedtools.cpp.makefile.MakefileSyntaxHighlighter;

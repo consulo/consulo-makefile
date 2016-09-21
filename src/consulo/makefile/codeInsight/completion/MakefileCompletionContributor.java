@@ -1,9 +1,9 @@
-package org.napile.cpp4idea.makefile.codeInsight.completion;
+package consulo.makefile.codeInsight.completion;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.codeInsight.completion.CompletionContributor;
 import com.intellij.codeInsight.completion.CompletionParameters;
-import com.intellij.codeInsight.completion.CompletionProvider;
+import consulo.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.codeInsight.completion.CompletionType;
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
@@ -21,10 +21,10 @@ public class MakefileCompletionContributor extends CompletionContributor
 
 	public MakefileCompletionContributor()
 	{
-		extend(CompletionType.BASIC, StandardPatterns.instanceOf(PsiElement.class), new CompletionProvider<CompletionParameters>()
+		extend(CompletionType.BASIC, StandardPatterns.instanceOf(PsiElement.class), new CompletionProvider()
 		{
 			@Override
-			protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result)
+			public void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result)
 			{
 				for(String keyword : KEYWORDS)
 				{

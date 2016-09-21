@@ -1,4 +1,4 @@
-package org.napile.cpp4idea.makefile.icons;
+package consulo.makefile.icons;
 
 import javax.swing.Icon;
 
@@ -10,5 +10,5 @@ import com.intellij.openapi.util.IconLoader;
  */
 public interface MakefileIcons
 {
-	Icon MAKEFILE_FILE = IconLoader.findIcon("/org/napile/cpp4idea/makefile/icons/makefile.gif");
+	Icon MAKEFILE_FILE = IconLoader.findIcon("/icons/makefile.gif");
 }

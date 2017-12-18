@@ -1,1 +1,1 @@
-![Build Status](http://must-be.org/vulcan/statusImage?name=consulo-makefile)
+[![Build Status](https://ci.consulo.io/job/consulo-makefile/badge/icon)](https://ci.consulo.io/job/consulo-makefile/)

@@ -1,8 +1,7 @@
 package consulo.makefile.icons;
 
-import javax.swing.Icon;
-
 import com.intellij.openapi.util.IconLoader;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -10,5 +9,5 @@ import com.intellij.openapi.util.IconLoader;
  */
 public interface MakefileIcons
 {
-	Icon MAKEFILE_FILE = IconLoader.findIcon("/icons/makefile.gif");
+	Image MAKEFILE_FILE = IconLoader.findIcon("/icons/makefile.gif");
 }

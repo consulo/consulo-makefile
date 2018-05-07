@@ -2,19 +2,16 @@ package com.advancedtools.cpp.makefile;
 
 import java.util.Map;
 
-import javax.swing.Icon;
-
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import consulo.makefile.MakefileBundle;
-import consulo.makefile.icons.MakefileIcons;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.options.colors.AttributesDescriptor;
 import com.intellij.openapi.options.colors.ColorDescriptor;
 import com.intellij.openapi.options.colors.ColorSettingsPage;
 import com.intellij.util.containers.HashMap;
+import consulo.makefile.MakefileBundle;
 
 /**
  * @author maxim
@@ -49,12 +46,6 @@ public class MakefileColorsAndFontsPage implements ColorSettingsPage
 	public String getDisplayName()
 	{
 		return "Makefile";
-	}
-
-	@Nullable
-	public Icon getIcon()
-	{
-		return MakefileIcons.MAKEFILE_FILE;
 	}
 
 	@NotNull

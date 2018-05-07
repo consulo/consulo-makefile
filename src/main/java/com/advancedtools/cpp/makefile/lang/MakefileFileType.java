@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
 import consulo.makefile.icons.MakefileIcons;
 import com.advancedtools.cpp.makefile.MakefileLanguage;
 import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -24,7 +25,7 @@ public class MakefileFileType extends LanguageFileType
 
 	@NotNull
 	@NonNls
-	public String getName()
+	public String getId()
 	{
 		return "Makefile";
 	}
@@ -43,7 +44,7 @@ public class MakefileFileType extends LanguageFileType
 	}
 
 	@Nullable
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return MakefileIcons.MAKEFILE_FILE;
 	}

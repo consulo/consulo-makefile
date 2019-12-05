@@ -1,4 +1,4 @@
-<idea-plugin>
+<consulo-plugin>
 	<id>consulo.makefile</id>
 	<name>Makefile</name>
 	<version>SNAPSHOT</version>
@@ -16,4 +16,4 @@
 		<lang.syntaxHighlighterFactory key="Makefile"
 									   implementationClass="consulo.makefile.codeInsight.MakefileSyntaxHighlighterFactory"/>
 	</extensions>
-</idea-plugin>
+</consulo-plugin>

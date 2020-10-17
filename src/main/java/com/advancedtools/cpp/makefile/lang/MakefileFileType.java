@@ -1,14 +1,12 @@
 package com.advancedtools.cpp.makefile.lang;
 
-import javax.swing.Icon;
-
+import com.advancedtools.cpp.makefile.MakefileLanguage;
+import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.platform.base.icon.PlatformIconGroup;
+import consulo.ui.image.Image;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import consulo.makefile.icons.MakefileIcons;
-import com.advancedtools.cpp.makefile.MakefileLanguage;
-import com.intellij.openapi.fileTypes.LanguageFileType;
-import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -46,6 +44,6 @@ public class MakefileFileType extends LanguageFileType
 	@Nullable
 	public Image getIcon()
 	{
-		return MakefileIcons.MAKEFILE_FILE;
+		return PlatformIconGroup.fileTypesText();
 	}
 }

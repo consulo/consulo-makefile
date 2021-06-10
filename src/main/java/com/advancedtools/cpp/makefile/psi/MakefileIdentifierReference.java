@@ -10,10 +10,10 @@ import com.intellij.psi.util.CachedValueProvider;
 import com.intellij.psi.util.CachedValuesManager;
 import com.intellij.util.IncorrectOperationException;
 import consulo.util.dataholder.Key;
-import gnu.trove.THashMap;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -147,7 +147,7 @@ public class MakefileIdentifierReference implements PsiPolyVariantReference
 			{
 				public Result<Map<String, Object>> compute()
 				{
-					final Map<String, Object> result = new THashMap<String, Object>();
+					final Map<String, Object> result = new HashMap<String, Object>();
 					psiFile.acceptChildren(new PsiElementVisitor()
 					{
 						@Override

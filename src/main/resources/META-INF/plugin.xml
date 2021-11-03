@@ -18,7 +18,7 @@
 									  implementationClass="consulo.makefile.codeInsight.MakefilePsiStructureViewFactory"/>
 		<fileTypeFactory implementation="com.advancedtools.cpp.makefile.lang.MakefileFileTypeFactory"/>
 		<colorSettingsPage implementation="com.advancedtools.cpp.makefile.MakefileColorsAndFontsPage"/>
-		<lang.syntaxHighlighterFactory key="Makefile"
+		<lang.syntaxHighlighterFactory language="Makefile"
 									   implementationClass="consulo.makefile.codeInsight.MakefileSyntaxHighlighterFactory"/>
 	</extensions>
 </consulo-plugin>

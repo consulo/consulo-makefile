@@ -3,6 +3,11 @@
 	<name>Makefile</name>
 	<version>SNAPSHOT</version>
 	<category>Custom Languages</category>
+
+	<tags>
+		<tag>build.framework</tag>
+	</tags>
+
 	<extensions defaultExtensionNs="com.intellij">
 		<completion.contributor language="Makefile"
 								implementationClass="consulo.makefile.codeInsight.completion.MakefileCompletionContributor"/>

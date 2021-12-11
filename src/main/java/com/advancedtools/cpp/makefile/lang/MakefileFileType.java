@@ -2,6 +2,7 @@ package com.advancedtools.cpp.makefile.lang;
 
 import com.advancedtools.cpp.makefile.MakefileLanguage;
 import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.localize.LocalizeValue;
 import consulo.platform.base.icon.PlatformIconGroup;
 import consulo.ui.image.Image;
 import org.jetbrains.annotations.NonNls;
@@ -29,9 +30,9 @@ public class MakefileFileType extends LanguageFileType
 	}
 
 	@NotNull
-	public String getDescription()
+	public LocalizeValue getDescription()
 	{
-		return "Traditional makefiles";
+		return LocalizeValue.localizeTODO("Traditional makefiles");
 	}
 
 	@NotNull

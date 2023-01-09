@@ -1,9 +1,9 @@
 /* AdvancedTools, 2007, all rights reserved */
 package com.advancedtools.cpp.makefile.lang;
 
-import org.jetbrains.annotations.NonNls;
 import com.advancedtools.cpp.makefile.MakefileLanguage;
-import com.intellij.psi.tree.IElementType;
+import consulo.language.ast.IElementType;
+import org.jetbrains.annotations.NonNls;
 
 /**
  * @author maxim

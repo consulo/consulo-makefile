@@ -1,10 +1,10 @@
 package com.advancedtools.cpp.makefile.psi;
 
-import org.jetbrains.annotations.NotNull;
 import com.advancedtools.cpp.makefile.lang.MakefileParser;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiReference;
+import consulo.language.ast.ASTNode;
+import consulo.language.impl.psi.ASTWrapperPsiElement;
+import consulo.language.psi.PsiReference;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * User: maxim

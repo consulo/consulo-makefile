@@ -1,10 +1,11 @@
 package com.advancedtools.cpp.makefile;
 
-import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import com.intellij.openapi.options.colors.AttributesDescriptor;
-import com.intellij.openapi.options.colors.ColorDescriptor;
-import com.intellij.openapi.options.colors.ColorSettingsPage;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.colorScheme.TextAttributesKey;
+import consulo.colorScheme.setting.AttributesDescriptor;
+import consulo.colorScheme.setting.ColorDescriptor;
+import consulo.language.editor.colorScheme.setting.ColorSettingsPage;
+import consulo.language.editor.highlight.SyntaxHighlighter;
 import consulo.makefile.MakefileBundle;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -18,6 +19,7 @@ import java.util.Map;
  *         Date: 1/29/13
  *         Time: 11:22 AM
  */
+@ExtensionImpl
 public class MakefileColorsAndFontsPage implements ColorSettingsPage
 {
 	private static final AttributesDescriptor[] ATTRS;
@@ -34,13 +36,7 @@ public class MakefileColorsAndFontsPage implements ColorSettingsPage
 	}
 
 	private static final ColorDescriptor[] COLORS = new ColorDescriptor[0];
-	private static
-	@NonNls
-	Map<String, TextAttributesKey> ourTags = new HashMap<String, TextAttributesKey>();
-
-	static
-	{
-	}
+	private static Map<String, TextAttributesKey> ourTags = new HashMap<String, TextAttributesKey>();
 
 	@NotNull
 	public String getDisplayName()

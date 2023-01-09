@@ -1,7 +1,7 @@
 package com.advancedtools.cpp.makefile.lang;
 
 import com.advancedtools.cpp.makefile.MakefileLanguage;
-import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.language.file.LanguageFileType;
 import consulo.localize.LocalizeValue;
 import consulo.platform.base.icon.PlatformIconGroup;
 import consulo.ui.image.Image;
@@ -45,6 +45,6 @@ public class MakefileFileType extends LanguageFileType
 	@Nullable
 	public Image getIcon()
 	{
-		return PlatformIconGroup.fileTypesText();
+		return PlatformIconGroup.filetypesText();
 	}
 }

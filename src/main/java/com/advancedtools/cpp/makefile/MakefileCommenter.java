@@ -1,13 +1,18 @@
 package com.advancedtools.cpp.makefile;
 
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Commenter;
+import consulo.language.Language;
 import org.jetbrains.annotations.Nullable;
-import com.intellij.lang.Commenter;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author maxim
  *         Date: 2/3/12
  *         Time: 1:30 PM
  */
+@ExtensionImpl
 public class MakefileCommenter implements Commenter
 {
 	@Nullable
@@ -36,5 +41,12 @@ public class MakefileCommenter implements Commenter
 	public String getCommentedBlockCommentSuffix()
 	{
 		return null;
+	}
+
+	@Nonnull
+	@Override
+	public Language getLanguage()
+	{
+		return MakefileLanguage.INSTANCE;
 	}
 }

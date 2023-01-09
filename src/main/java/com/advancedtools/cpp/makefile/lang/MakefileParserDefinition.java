@@ -1,29 +1,42 @@
 package com.advancedtools.cpp.makefile.lang;
 
-import org.jetbrains.annotations.NotNull;
+import com.advancedtools.cpp.makefile.MakefileLanguage;
 import com.advancedtools.cpp.makefile.MakefileTokenTypes;
 import com.advancedtools.cpp.makefile.psi.MakefileNamedElement;
 import com.advancedtools.cpp.makefile.psi.MakefilePsiElement;
 import com.advancedtools.cpp.makefile.psi.MakefilePsiFile;
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.ParserDefinition;
-import com.intellij.lang.PsiParser;
-import com.intellij.lexer.Lexer;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.IFileElementType;
-import com.intellij.psi.tree.TokenSet;
-import consulo.lang.LanguageVersion;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Language;
+import consulo.language.ast.ASTNode;
+import consulo.language.ast.IElementType;
+import consulo.language.ast.IFileElementType;
+import consulo.language.ast.TokenSet;
+import consulo.language.file.FileViewProvider;
+import consulo.language.lexer.Lexer;
+import consulo.language.parser.ParserDefinition;
+import consulo.language.parser.PsiParser;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.language.version.LanguageVersion;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author maxim
  *         Date: 2/3/12
  *         Time: 1:28 PM
  */
+@ExtensionImpl
 public class MakefileParserDefinition implements ParserDefinition
 {
+	@Nonnull
+	@Override
+	public Language getLanguage()
+	{
+		return MakefileLanguage.INSTANCE;
+	}
+
 	@NotNull
 	public Lexer createLexer(LanguageVersion languageVersion)
 	{

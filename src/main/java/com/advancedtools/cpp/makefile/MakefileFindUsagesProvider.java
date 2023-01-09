@@ -1,36 +1,26 @@
 package com.advancedtools.cpp.makefile;
 
-import org.jetbrains.annotations.NotNull;
-import com.advancedtools.cpp.makefile.lang._MakefileLexer;
 import com.advancedtools.cpp.makefile.psi.MakefileIdentifierReference;
-import com.intellij.lang.cacheBuilder.DefaultWordsScanner;
-import com.intellij.lang.cacheBuilder.WordsScanner;
-import com.intellij.lang.findUsages.FindUsagesProvider;
-import com.intellij.lexer.FlexAdapter;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.TokenSet;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Language;
+import consulo.language.ast.IElementType;
+import consulo.language.findUsage.FindUsagesProvider;
+import consulo.language.psi.PsiElement;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author maxim
- *         Date: 2/3/12
- *         Time: 1:34 PM
+ * Date: 2/3/12
+ * Time: 1:34 PM
  */
+@ExtensionImpl
 public class MakefileFindUsagesProvider implements FindUsagesProvider
 {
-	public WordsScanner getWordsScanner()
-	{
-		return new DefaultWordsScanner(new FlexAdapter(new _MakefileLexer(true)), TokenSet.create(MakefileTokenTypes.IDENTIFIER, MakefileTokenTypes.TARGET_IDENTIFIER, MakefileTokenTypes.VAR_DEFINITION, MakefileTokenTypes.VAR_REFERENCE), MakefileTokenTypes.COMMENTS, MakefileTokenTypes.LITERALS);
-	}
-
 	public boolean canFindUsagesFor(@NotNull PsiElement psiElement)
 	{
 		return MakefileIdentifierReference.isSelfReferenceType(MakefileIdentifierReference.type(psiElement));
-	}
-
-	public String getHelpId(@NotNull PsiElement psiElement)
-	{
-		return null;
 	}
 
 	@NotNull
@@ -38,9 +28,13 @@ public class MakefileFindUsagesProvider implements FindUsagesProvider
 	{
 		IElementType iElementType = MakefileIdentifierReference.type(psiElement);
 		if(iElementType == MakefileTokenTypes.VAR_DEFINITION)
+		{
 			return "definition";
+		}
 		if(iElementType == MakefileTokenTypes.TARGET_IDENTIFIER)
+		{
 			return "target";
+		}
 		return "should not happen type";
 	}
 
@@ -54,5 +48,12 @@ public class MakefileFindUsagesProvider implements FindUsagesProvider
 	public String getNodeText(@NotNull PsiElement psiElement, boolean b)
 	{
 		return getDescriptiveName(psiElement);
+	}
+
+	@Nonnull
+	@Override
+	public Language getLanguage()
+	{
+		return MakefileLanguage.INSTANCE;
 	}
 }

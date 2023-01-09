@@ -1,7 +1,7 @@
 /* AdvancedTools, 2007, all rights reserved */
 package com.advancedtools.cpp.makefile;
 
-import com.intellij.lang.Language;
+import consulo.language.Language;
 
 /**
  * @author maxim

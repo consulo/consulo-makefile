@@ -1,34 +1,36 @@
 package consulo.makefile.codeInsight;
 
+import com.advancedtools.cpp.makefile.MakefileLanguage;
+import com.advancedtools.cpp.makefile.MakefileTokenTypes;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.codeEditor.Editor;
+import consulo.fileEditor.structureView.StructureViewBuilder;
+import consulo.fileEditor.structureView.StructureViewModel;
+import consulo.fileEditor.structureView.StructureViewTreeElement;
+import consulo.fileEditor.structureView.TreeBasedStructureViewBuilder;
+import consulo.language.Language;
+import consulo.language.ast.ASTNode;
+import consulo.language.editor.structureView.PsiStructureViewFactory;
+import consulo.language.editor.structureView.PsiTreeElementBase;
+import consulo.language.editor.structureView.TextEditorBasedStructureViewModel;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.language.psi.util.EditSourceUtil;
+import consulo.navigation.Navigatable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import com.advancedtools.cpp.makefile.MakefileTokenTypes;
-import com.intellij.ide.structureView.StructureViewBuilder;
-import com.intellij.ide.structureView.StructureViewModel;
-import com.intellij.ide.structureView.StructureViewTreeElement;
-import com.intellij.ide.structureView.TextEditorBasedStructureViewModel;
-import com.intellij.ide.structureView.TreeBasedStructureViewBuilder;
-import com.intellij.ide.structureView.impl.common.PsiTreeElementBase;
-import com.intellij.ide.util.EditSourceUtil;
-import com.intellij.ide.util.treeView.smartTree.Filter;
-import com.intellij.ide.util.treeView.smartTree.Grouper;
-import com.intellij.ide.util.treeView.smartTree.Sorter;
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.PsiStructureViewFactory;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.pom.Navigatable;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-
 /**
  * @author VISTALL
  * @since 18:58/16.03.13
  */
+@ExtensionImpl
 public class MakefilePsiStructureViewFactory implements PsiStructureViewFactory
 {
 	@Nullable
@@ -43,12 +45,6 @@ public class MakefilePsiStructureViewFactory implements PsiStructureViewFactory
 			{
 				return new TextEditorBasedStructureViewModel(psiFile)
 				{
-					@Override
-					protected PsiFile getPsiFile()   // TODO: change abstract method to constructor parameter?
-					{
-						return psiFile;
-					}
-
 					@Override
 					@NotNull
 					public StructureViewTreeElement getRoot()
@@ -118,36 +114,15 @@ public class MakefilePsiStructureViewFactory implements PsiStructureViewFactory
 							}
 						};
 					}
-
-					@Override
-					@NotNull
-					public Grouper[] getGroupers()
-					{
-						return new Grouper[0];
-					}
-
-					@Override
-					@NotNull
-					public Sorter[] getSorters()
-					{
-						return new Sorter[]{Sorter.ALPHA_SORTER};
-					}
-
-					@Override
-					@NotNull
-					public Filter[] getFilters()
-					{
-						return new Filter[0];
-					}
-
-					@Override
-					@NotNull
-					protected Class[] getSuitableClasses()
-					{
-						return new Class[0];
-					}
 				};
 			}
 		};
+	}
+
+	@Nonnull
+	@Override
+	public Language getLanguage()
+	{
+		return MakefileLanguage.INSTANCE;
 	}
 }

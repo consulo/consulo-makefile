@@ -1,16 +1,16 @@
 /* AdvancedTools, 2007, all rights reserved */
 package com.advancedtools.cpp.makefile;
 
+import com.advancedtools.cpp.makefile.lang.MakefileLexer;
+import consulo.codeEditor.DefaultLanguageHighlighterColors;
+import consulo.colorScheme.TextAttributesKey;
+import consulo.language.ast.IElementType;
+import consulo.language.editor.highlight.SyntaxHighlighterBase;
+import consulo.language.lexer.Lexer;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import org.jetbrains.annotations.NotNull;
-import com.advancedtools.cpp.makefile.lang.MakefileLexer;
-import com.intellij.lexer.Lexer;
-import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
-import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
-import com.intellij.psi.tree.IElementType;
 
 /**
  * @author maxim

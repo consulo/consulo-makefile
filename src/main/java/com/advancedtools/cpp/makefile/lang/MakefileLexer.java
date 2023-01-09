@@ -2,9 +2,9 @@
 package com.advancedtools.cpp.makefile.lang;
 
 import com.advancedtools.cpp.makefile.MakefileTokenTypes;
-import com.intellij.lexer.FlexAdapter;
-import com.intellij.lexer.MergingLexerAdapter;
-import com.intellij.psi.tree.TokenSet;
+import consulo.language.ast.TokenSet;
+import consulo.language.lexer.FlexAdapter;
+import consulo.language.lexer.MergingLexerAdapter;
 
 /**
  * @author maxim

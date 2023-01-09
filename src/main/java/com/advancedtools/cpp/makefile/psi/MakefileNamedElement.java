@@ -1,14 +1,14 @@
 package com.advancedtools.cpp.makefile.psi;
 
+import com.advancedtools.cpp.makefile.MakefileTokenTypes;
+import consulo.language.ast.ASTNode;
+import consulo.language.ast.TokenSet;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiNamedElement;
+import consulo.language.psi.PsiReference;
+import consulo.language.util.IncorrectOperationException;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-import com.advancedtools.cpp.makefile.MakefileTokenTypes;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiNamedElement;
-import com.intellij.psi.PsiReference;
-import com.intellij.psi.tree.TokenSet;
-import com.intellij.util.IncorrectOperationException;
 
 /**
  * User: maxim

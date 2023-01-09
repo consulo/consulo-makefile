@@ -1,12 +1,11 @@
 package com.advancedtools.cpp.makefile.psi;
 
-import org.jetbrains.annotations.NotNull;
-import com.advancedtools.cpp.makefile.lang.MakefileFileType;
 import com.advancedtools.cpp.makefile.MakefileLanguage;
-import com.intellij.extapi.psi.PsiFileBase;
-import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.psi.FileViewProvider;
-
+import com.advancedtools.cpp.makefile.lang.MakefileFileType;
+import consulo.language.file.FileViewProvider;
+import consulo.language.impl.psi.PsiFileBase;
+import consulo.virtualFileSystem.fileType.FileType;
+import org.jetbrains.annotations.NotNull;
 /**
  * @author maxim
  *         Date: 2/7/12

@@ -7,18 +7,4 @@
 	<tags>
 		<tag>build.framework</tag>
 	</tags>
-
-	<extensions defaultExtensionNs="com.intellij">
-		<completion.contributor language="Makefile"
-								implementationClass="consulo.makefile.codeInsight.completion.MakefileCompletionContributor"/>
-		<lang.parserDefinition language="Makefile" implementationClass="com.advancedtools.cpp.makefile.lang.MakefileParserDefinition"/>
-		<lang.commenter language="Makefile" implementationClass="com.advancedtools.cpp.makefile.MakefileCommenter"/>
-		<lang.findUsagesProvider language="Makefile" implementationClass="com.advancedtools.cpp.makefile.MakefileFindUsagesProvider"/>
-		<lang.psiStructureViewFactory language="Makefile"
-									  implementationClass="consulo.makefile.codeInsight.MakefilePsiStructureViewFactory"/>
-		<fileTypeFactory implementation="com.advancedtools.cpp.makefile.lang.MakefileFileTypeFactory"/>
-		<colorSettingsPage implementation="com.advancedtools.cpp.makefile.MakefileColorsAndFontsPage"/>
-		<lang.syntaxHighlighterFactory language="Makefile"
-									   implementationClass="consulo.makefile.codeInsight.MakefileSyntaxHighlighterFactory"/>
-	</extensions>
 </consulo-plugin>

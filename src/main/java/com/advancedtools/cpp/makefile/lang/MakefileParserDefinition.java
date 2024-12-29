@@ -20,7 +20,7 @@ import consulo.language.psi.PsiFile;
 import consulo.language.version.LanguageVersion;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author maxim

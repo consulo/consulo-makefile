@@ -5,7 +5,7 @@ import consulo.language.Commenter;
 import consulo.language.Language;
 import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author maxim

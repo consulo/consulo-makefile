@@ -3,7 +3,7 @@ package com.advancedtools.cpp.makefile.lang;
 import com.advancedtools.cpp.makefile.MakefileLanguage;
 import consulo.language.file.LanguageFileType;
 import consulo.localize.LocalizeValue;
-import consulo.platform.base.icon.PlatformIconGroup;
+import consulo.makefile.icon.MakeFileIconGroup;
 import consulo.ui.image.Image;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -22,29 +22,33 @@ public class MakefileFileType extends LanguageFileType
 		super(MakefileLanguage.INSTANCE);
 	}
 
-	@NotNull
+	@Override
+    @NotNull
 	@NonNls
 	public String getId()
 	{
 		return "Makefile";
 	}
 
-	@NotNull
+	@Override
+    @NotNull
 	public LocalizeValue getDescription()
 	{
 		return LocalizeValue.localizeTODO("Traditional makefiles");
 	}
 
-	@NotNull
+	@Override
+    @NotNull
 	@NonNls
 	public String getDefaultExtension()
 	{
 		return "";
 	}
 
-	@Nullable
+	@Override
+    @Nullable
 	public Image getIcon()
 	{
-		return PlatformIconGroup.filetypesText();
+		return MakeFileIconGroup.makefile();
 	}
 }

@@ -10,7 +10,7 @@ import consulo.language.psi.PsiElement;
 import consulo.language.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

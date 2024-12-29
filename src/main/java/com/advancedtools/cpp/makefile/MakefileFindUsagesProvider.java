@@ -8,7 +8,7 @@ import consulo.language.findUsage.FindUsagesProvider;
 import consulo.language.psi.PsiElement;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author maxim

@@ -8,7 +8,7 @@ import consulo.language.editor.highlight.SingleLazyInstanceSyntaxHighlighterFact
 import consulo.language.editor.highlight.SyntaxHighlighter;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

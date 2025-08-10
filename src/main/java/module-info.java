@@ -13,4 +13,5 @@ module consulo.makefile
     exports consulo.makefile.codeInsight;
     exports consulo.makefile.codeInsight.completion;
     exports consulo.makefile.icon;
+    exports consulo.makefile.localize;
 }

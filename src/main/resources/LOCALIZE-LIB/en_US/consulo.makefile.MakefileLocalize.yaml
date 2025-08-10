@@ -1,0 +1,12 @@
+make.definition:
+    text: Definition
+make.keyword:
+    text: Keyword
+make.linecomment:
+    text: Line comment
+make.target:
+    text: Target
+make.templatedata:
+    text: Template data
+makefile.text:
+    text: Makefile

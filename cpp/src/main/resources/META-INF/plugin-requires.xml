@@ -1,0 +1,5 @@
+<consulo-plugin-requires>
+    <plugins>
+        <plugin>consulo.cpp</plugin>
+    </plugins>
+</consulo-plugin-requires>

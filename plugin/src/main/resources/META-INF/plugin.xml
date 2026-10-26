@@ -1,0 +1,14 @@
+<consulo-plugin url="https://github.com/consulo/consulo-makefile">
+	<id>consulo.makefile</id>
+	<name>Makefile</name>
+	<version>SNAPSHOT</version>
+	<category>Custom Languages</category>
+	<vendor>consulo.io</vendor>
+	<depends optional="true">consulo.cpp</depends>
+	<description>Makefile language support, and the import of projects built with make - the C/C++ compile settings of the import need the C/C++ plugin.</description>
+
+	<tags>
+		<tag>build.framework</tag>
+		<tag>project.import</tag>
+	</tags>
+</consulo-plugin>

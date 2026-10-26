@@ -1,0 +1,9 @@
+consulo-makefile
+Copyright 2013-2026 consulo.io
+
+The Makefile language support (the com.jetbrains.lang.makefile packages of the
+language module) is ported from the Makefile plugin of JetBrains intellij-plugins
+(https://github.com/JetBrains/intellij-plugins/tree/master/makefile), originally
+developed at https://github.com/kropp/intellij-makefile,
+Copyright (c) 2016 Victor Kropp, licensed under the MIT License - see
+language/LICENSE-intellij-makefile.

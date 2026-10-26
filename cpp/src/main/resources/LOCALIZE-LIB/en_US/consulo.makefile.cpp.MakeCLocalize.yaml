@@ -1,0 +1,12 @@
+extension.name:
+    text: C/C++ (Make)
+extension.defines.label:
+    text: 'Defines:'
+extension.defines.count:
+    text: '{0} defines'
+extension.include.paths.label:
+    text: 'Include directories:'
+extension.c.standard.label:
+    text: 'C standard:'
+extension.cpp.standard.label:
+    text: 'C++ standard:'

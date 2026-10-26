@@ -1,0 +1,40 @@
+make.system.name:
+    text: Make
+build.directory.label:
+    text: 'Build directory:'
+build.directory.placeholder:
+    text: Relative to the sources; empty to build in them
+make.arguments.label:
+    text: 'Make arguments:'
+configure.arguments.label:
+    text: 'Configure arguments:'
+task.build.default:
+    text: Build the default goal
+task.build.target:
+    text: Build target {0}
+status.generating.configure:
+    text: Generating the configure script
+status.configuring:
+    text: Running configure
+status.collecting.commands:
+    text: Collecting compile commands (make --dry-run)
+status.generating.compilation.database:
+    text: Generating the compilation database (make compile-commands)
+status.reading.compilation.database:
+    text: Reading {0}
+status.probing.compiler:
+    text: Querying compiler {0}
+status.reading.targets:
+    text: Reading make targets
+error.no.build.files:
+    text: 'Nothing to build in {0}: no makefile, configure script or compile_commands.json'
+error.failed.run:
+    text: 'Failed to run {0}: {1}'
+error.exit.code:
+    text: '{0} exited with code {1}'
+error.cancelled:
+    text: Cancelled
+error.cannot.create.build.dir:
+    text: 'Cannot create the build directory: {0}'
+error.failed.read.file:
+    text: 'Cannot read {0}: {1}'

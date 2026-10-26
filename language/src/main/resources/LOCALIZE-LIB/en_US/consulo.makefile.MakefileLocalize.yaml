@@ -1,0 +1,50 @@
+attribute.descriptor.braces:
+    text: Braces
+attribute.descriptor.comment:
+    text: Comment
+attribute.descriptor.documentation.comment:
+    text: Documentation Comment
+attribute.descriptor.function:
+    text: Function
+attribute.descriptor.function.param:
+    text: Function Param
+attribute.descriptor.keyword:
+    text: Keyword
+attribute.descriptor.line.split:
+    text: Line Split
+attribute.descriptor.prerequisite:
+    text: Prerequisite
+attribute.descriptor.separator:
+    text: Separator
+attribute.descriptor.special.target:
+    text: Special Target
+attribute.descriptor.tab:
+    text: Tab
+attribute.descriptor.target:
+    text: Target
+attribute.descriptor.variable.name:
+    text: Variable Name
+attribute.descriptor.variable.value:
+    text: Variable Value
+configurable.name:
+    text: Make
+filetype.makefile.description:
+    text: GNU Makefile
+makefile.inspection.group.name:
+    text: Makefile
+make.unresolved.prerequisite.inspection.name:
+    text: Unresolved prerequisite
+inspection.message.file.not.found:
+    text: File not found
+inspection.message.unresolved.prerequisite:
+    text: Unresolved prerequisite
+intention.name.create.rule:
+    text: Create rule
+usage.type.makefile.target:
+    text: Makefile target
+usage.type.makefile.variable:
+    text: Makefile variable
+action.run.target.text:
+    text: make {0}
+action.run.target.description:
+    text: make {0}

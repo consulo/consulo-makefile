@@ -30,6 +30,8 @@ import jakarta.inject.Inject;
 import org.jspecify.annotations.Nullable;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * Imports a project built with make - also one which has no makefile yet, only a configure script or what autoconf
@@ -51,11 +53,11 @@ public class MakeModuleImportProvider extends AbstractExternalModuleImportProvid
     }
 
     @Override
-    public boolean canImport(File fileOrDirectory) {
-        if (fileOrDirectory.isDirectory()) {
-            return MakeProjectPaths.isProjectDirectory(fileOrDirectory.toPath());
+    public boolean canImport(Path fileOrDirectory) {
+        if (Files.isDirectory(fileOrDirectory)) {
+            return MakeProjectPaths.isProjectDirectory(fileOrDirectory);
         }
-        return MakeProjectPaths.isProjectFile(fileOrDirectory.getName());
+        return MakeProjectPaths.isProjectFile(fileOrDirectory.getFileName().toString());
     }
 
     @Override

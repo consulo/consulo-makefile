@@ -73,6 +73,7 @@ final class MakeCompileSettingsCollector {
 
     private final Set<String> myIncludePaths = new LinkedHashSet<>();
     private final Set<String> mySystemIncludePaths = new LinkedHashSet<>();
+    private final Set<String> myForcedIncludes = new LinkedHashSet<>();
     private @Nullable Map<String, String> myBuiltinDefines;
     private final Map<String, String> myDefines = new LinkedHashMap<>();
     private @Nullable CLanguageVersion myCStandard;
@@ -82,6 +83,7 @@ final class MakeCompileSettingsCollector {
     void add(MakeCompileData data) {
         myIncludePaths.addAll(data.getIncludePaths());
         mySystemIncludePaths.addAll(data.getSystemIncludePaths());
+        myForcedIncludes.addAll(data.getForcedIncludes());
         myDefines.putAll(data.getDefines());
 
         // what every compiler of the module predefines alike - so the C++ only macros stay away from C
@@ -116,6 +118,7 @@ final class MakeCompileSettingsCollector {
 
         CCompileSettings settings = new CCompileSettings();
         settings.setIncludePaths(new ArrayList<>(includePaths));
+        settings.setForcedIncludes(new ArrayList<>(myForcedIncludes));
         settings.setDefines(defines);
         settings.setCStandard(myCStandard);
         settings.setCppStandard(myCppStandard);

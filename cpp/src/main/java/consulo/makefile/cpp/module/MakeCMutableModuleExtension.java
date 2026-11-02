@@ -54,6 +54,11 @@ public class MakeCMutableModuleExtension extends MakeCModuleExtension implements
     }
 
     @Override
+    public void setForcedIncludes(List<String> forcedIncludes) {
+        myCompileSettings.setForcedIncludes(forcedIncludes);
+    }
+
+    @Override
     public void setTarget(@Nullable String target) {
         myCompileSettings.setTarget(target);
     }
@@ -78,6 +83,7 @@ public class MakeCMutableModuleExtension extends MakeCModuleExtension implements
         return FormBuilder.create()
             .addLabeled(MakeCLocalize.extensionDefinesLabel(), Label.create(definesText(getDefines())))
             .addLabeled(MakeCLocalize.extensionIncludePathsLabel(), Label.create(LocalizeValue.of(CModuleExtension.formatIncludePaths(getIncludePaths()))))
+            .addLabeled(MakeCLocalize.extensionForcedIncludesLabel(), Label.create(LocalizeValue.of(CModuleExtension.formatIncludePaths(getForcedIncludes()))))
             .addLabeled(MakeCLocalize.extensionCStandardLabel(), Label.create(LocalizeValue.of(standardName(getCStandard()))))
             .addLabeled(MakeCLocalize.extensionCppStandardLabel(), Label.create(LocalizeValue.of(standardName(getCppStandard()))))
             .build();

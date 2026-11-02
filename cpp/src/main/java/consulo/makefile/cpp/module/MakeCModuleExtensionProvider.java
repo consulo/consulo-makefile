@@ -15,10 +15,10 @@
  */
 package consulo.makefile.cpp.module;
 
+import consulo.makefile.build.MakeConstants;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.makefile.icon.MakeFileIconGroup;
 import consulo.makefile.cpp.localize.MakeCLocalize;
-import consulo.cpp.module.extension.CDefaultModuleExtension;
 import consulo.localize.LocalizeValue;
 import consulo.module.content.layer.ModuleExtensionProvider;
 import consulo.module.content.layer.ModuleRootLayer;
@@ -38,9 +38,12 @@ public class MakeCModuleExtensionProvider implements ModuleExtensionProvider<Mak
         return MakeCModuleExtension.ID;
     }
 
+    /**
+     * The Make extension: the framework of the module, which C/C++ adds a language to.
+     */
     @Override
     public @Nullable String getParentId() {
-        return CDefaultModuleExtension.ID;
+        return MakeConstants.SYSTEM_ID.getId();
     }
 
     @Override

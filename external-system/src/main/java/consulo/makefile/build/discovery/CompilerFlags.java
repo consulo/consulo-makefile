@@ -37,6 +37,7 @@ import java.util.Set;
  * @param standard           the {@code -std=} value - {@code gnu11}, {@code c++20} - {@code null} when none is given
  * @param target             the target triple of a cross compiling Clang, {@code null} when none is given
  * @param sources            the C and C++ files the command compiles
+ * @param forcedIncludes     the headers of {@code -include}, preprocessed before the first line
  * @param probeArguments     the arguments which change the predefined macros and the system include directories
  * @param preprocessOnly     whether the command only preprocesses ({@code -E}) or lists dependencies ({@code -M})
  * @author VISTALL
@@ -44,6 +45,7 @@ import java.util.Set;
  */
 public record CompilerFlags(List<String> includePaths,
                             List<String> systemIncludePaths,
+                            List<String> forcedIncludes,
                             Map<String, @Nullable String> defineChanges,
                             @Nullable String standard,
                             @Nullable String target,
@@ -83,6 +85,7 @@ public record CompilerFlags(List<String> includePaths,
 
         List<String> includePaths = new ArrayList<>();
         List<String> systemIncludePaths = new ArrayList<>();
+        List<String> forcedIncludes = new ArrayList<>();
         Map<String, @Nullable String> defineChanges = new LinkedHashMap<>();
         Set<String> probeArguments = new LinkedHashSet<>();
         List<Source> sources = new ArrayList<>();
@@ -157,6 +160,14 @@ public record CompilerFlags(List<String> includePaths,
                 continue;
             }
 
+            if (argument.equals("-include") && next != null) {
+                // -include pre.h: preprocessed before the first line; found from the directory the compiler runs in first
+                Path resolved = directory.resolve(next).normalize();
+                forcedIncludes.add(Files.isRegularFile(resolved) ? resolved.toString() : next);
+                i++;
+                continue;
+            }
+
             if (argument.startsWith("-std=")) {
                 standard = argument.substring("-std=".length());
                 probeArguments.add(argument);
@@ -199,7 +210,7 @@ public record CompilerFlags(List<String> includePaths,
                 probeArguments.add(argument);
             }
         }
-        return new CompilerFlags(includePaths, systemIncludePaths, defineChanges, standard, target, sources,
+        return new CompilerFlags(includePaths, systemIncludePaths, forcedIncludes, defineChanges, standard, target, sources,
             new ArrayList<>(probeArguments), preprocessOnly);
     }
 

@@ -51,6 +51,11 @@ public class MakeCModuleExtension extends ModuleExtensionBase<MakeCModuleExtensi
     }
 
     @Override
+    public List<String> getForcedIncludes() {
+        return myCompileSettings.getForcedIncludes();
+    }
+
+    @Override
     public @Nullable CLanguageVersion getCStandard() {
         return myCompileSettings.getCStandard();
     }

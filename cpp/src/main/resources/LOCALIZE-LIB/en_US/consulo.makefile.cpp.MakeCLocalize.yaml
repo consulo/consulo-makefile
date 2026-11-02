@@ -1,5 +1,5 @@
 extension.name:
-    text: C/C++ (Make)
+    text: C/C++
 extension.defines.label:
     text: 'Defines:'
 extension.defines.count:
@@ -10,3 +10,5 @@ extension.c.standard.label:
     text: 'C standard:'
 extension.cpp.standard.label:
     text: 'C++ standard:'
+extension.forced.includes.label:
+    text: 'Forced includes:'

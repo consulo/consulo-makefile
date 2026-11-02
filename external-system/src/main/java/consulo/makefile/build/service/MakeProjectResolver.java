@@ -376,6 +376,7 @@ public class MakeProjectResolver implements ExternalSystemProjectResolver<MakeEx
     private record GroupKey(String language,
                             List<String> includePaths,
                             List<String> systemIncludePaths,
+                            List<String> forcedIncludes,
                             Map<String, String> builtinDefines,
                             Map<String, String> defines,
                             @Nullable String standard,
@@ -433,7 +434,8 @@ public class MakeProjectResolver implements ExternalSystemProjectResolver<MakeEx
 
         List<MakeCompileData> result = new ArrayList<>();
         for (GroupKey group : groups) {
-            result.add(new MakeCompileData(group.language(), group.includePaths(), group.systemIncludePaths(), group.builtinDefines(),
+            result.add(new MakeCompileData(group.language(), group.includePaths(), group.systemIncludePaths(), group.forcedIncludes(),
+                group.builtinDefines(),
                 group.defines(), group.standard(), group.target()));
         }
         return result;
@@ -471,7 +473,7 @@ public class MakeProjectResolver implements ExternalSystemProjectResolver<MakeEx
         String target = flags.target() != null ? flags.target() : builtins.target();
         String standard = CompilerStandards.standard(language, flags.standard(), builtins.versionMacro());
         return new GroupKey(language, List.copyOf(new LinkedHashSet<>(flags.includePaths())), List.copyOf(systemIncludePaths),
-            builtinDefines, defines, standard, target);
+            List.copyOf(new LinkedHashSet<>(flags.forcedIncludes())), builtinDefines, defines, standard, target);
     }
 
     /**

@@ -15,6 +15,9 @@
  */
 package consulo.makefile.cpp;
 
+import consulo.module.extension.MutableModuleExtension;
+import consulo.cpp.module.extension.CDefaultModuleExtension;
+import consulo.makefile.build.MakeConstants;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.makefile.cpp.module.MakeCMutableModuleExtension;
 import consulo.cpp.module.extension.CCompileSettings;
@@ -75,12 +78,22 @@ public class MakeCompileDataService implements ProjectDataService<MakeCompileDat
         });
     }
 
+    /**
+     * A module Make imports has one framework, Make, and C/C++ as its language: the Make extension is enabled with the
+     * C/C++ one under it, and the C/C++ set up by hand - another framework - is not.
+     */
     private static void apply(Module module, CCompileSettings settings) {
         ModifiableRootModel rootModel = ModuleRootManager.getInstance(module).getModifiableModel();
         MakeCMutableModuleExtension extension = rootModel.getExtensionWithoutCheck(MakeCMutableModuleExtension.class);
         if (extension == null) {
             rootModel.dispose();
             return;
+        }
+        if (rootModel.getExtensionWithoutCheck(MakeConstants.SYSTEM_ID.getId()) instanceof MutableModuleExtension<?> make) {
+            make.setEnabled(true);
+        }
+        if (rootModel.getExtensionWithoutCheck(CDefaultModuleExtension.ID) instanceof MutableModuleExtension<?> manual) {
+            manual.setEnabled(false);
         }
         extension.setEnabled(true);
         extension.setCompileSettings(settings);

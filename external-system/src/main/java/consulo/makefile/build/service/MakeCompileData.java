@@ -34,13 +34,14 @@ import java.util.Map;
  * @since 2026-10-25
  */
 public class MakeCompileData extends AbstractExternalEntityData {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     public static final Key<MakeCompileData> KEY = Key.create(MakeCompileData.class, ProjectKeys.MODULE.getProcessingWeight() + 1);
 
     private final String myLanguage;
     private final List<String> myIncludePaths;
     private final List<String> mySystemIncludePaths;
+    private final List<String> myForcedIncludes;
     private final Map<String, String> myBuiltinDefines;
     private final Map<String, String> myDefines;
     private final @Nullable String myStandard;
@@ -49,6 +50,7 @@ public class MakeCompileData extends AbstractExternalEntityData {
     /**
      * @param language           {@code C} or {@code CXX}
      * @param systemIncludePaths the {@code -isystem} directories, then the compiler's own
+     * @param forcedIncludes     the headers of {@code -include}, preprocessed before the first line of every file
      * @param builtinDefines     the macros the compiler predefines
      * @param defines            the defines of the command, which win over the predefined
      * @param standard         the language standard in the notation of {@link consulo.makefile.build.discovery.CompilerStandards}
@@ -57,6 +59,7 @@ public class MakeCompileData extends AbstractExternalEntityData {
     public MakeCompileData(String language,
                            List<String> includePaths,
                            List<String> systemIncludePaths,
+                           List<String> forcedIncludes,
                            Map<String, String> builtinDefines,
                            Map<String, String> defines,
                            @Nullable String standard,
@@ -65,6 +68,7 @@ public class MakeCompileData extends AbstractExternalEntityData {
         myLanguage = language;
         myIncludePaths = new ArrayList<>(includePaths);
         mySystemIncludePaths = new ArrayList<>(systemIncludePaths);
+        myForcedIncludes = new ArrayList<>(forcedIncludes);
         myBuiltinDefines = new LinkedHashMap<>(builtinDefines);
         myDefines = new LinkedHashMap<>(defines);
         myStandard = standard;
@@ -81,6 +85,10 @@ public class MakeCompileData extends AbstractExternalEntityData {
 
     public List<String> getSystemIncludePaths() {
         return List.copyOf(mySystemIncludePaths);
+    }
+
+    public List<String> getForcedIncludes() {
+        return List.copyOf(myForcedIncludes);
     }
 
     public Map<String, String> getBuiltinDefines() {

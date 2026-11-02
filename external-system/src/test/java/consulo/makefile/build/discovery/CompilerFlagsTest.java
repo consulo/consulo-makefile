@@ -79,6 +79,17 @@ public class CompilerFlagsTest {
         assertEquals(List.of(myRoot.resolve("x.c")), flags.sources().stream().map(CompilerFlags.Source::file).toList());
     }
 
+    /**
+     * {@code -include} names a header preprocessed before the first line: kept as written when the directory the compiler
+     * runs in has no such file, made absolute when it has.
+     */
+    @Test
+    public void testForcedIncludes() throws Exception {
+        java.nio.file.Files.writeString(myRoot.resolve("config.h"), "#define X 1\n");
+        CompilerFlags flags = CompilerFlags.parse("cc", List.of("-include", "config.h", "-include", "missing.h", "-c", "x.c"), myRoot);
+        assertEquals(List.of(myRoot.resolve("config.h").toString(), "missing.h"), flags.forcedIncludes());
+    }
+
     @Test
     public void testProbeArguments() {
         CompilerFlags flags = CompilerFlags.parse("clang", List.of(
